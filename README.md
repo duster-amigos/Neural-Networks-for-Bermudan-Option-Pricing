@@ -93,33 +93,6 @@ Feedforward neural networks (FFNN) are used as flexible regressors for the conti
 
 ---
 
-### 5. Example Parameters and Reference Prices
-- **Geometric Basket Put Option:**
-  - d = 2, r = 0.05, sigma^i = 0.2, rho = 0.2, T = 1, K = 100, S_0^i = 100, N = 10, M = 100000 (Reference price = 4.57)
-  - d = 10, r = 0.05, sigma^i = 0.2, rho = 0.2, T = 1, K = 100, S_0^i = 100, N = 10, M = 100000 (Reference price = 2.97)
-- **Basket Put Option:**
-  - d = 5, r = 0.05, sigma^i = 0.2, rho = 0.2, T = 1, K = 100, S_0^i = 100, N = 10, M = 100000
-  - d = 40, r = 0.05, sigma^i = 0.2, rho = 0.2, T = 1, K = 100, S_0^i = 100, N = 10, M = 100000 (Reference price in [2.15, 2.22])
-
----
-
-## Project Structure
-- **Simulation**: Functions for simulating Brownian motion and Black-Scholes asset paths (e.g., `sbmd`, `stocks_bs`).
-- **Statistical Checks**: Functions to verify simulation properties (`check_bs_properties`, `check_log_normal_distribution`).
-- **Option Classes**: `Option` class encapsulates option parameters and payoffs.
-- **Payoff Functions**: For put, basket, geometric basket, and max call options.
-- **Regression Models**: Functions to build and train FFNNs (`build_ffnn`) and polynomial regressors.
-- **Pricing Algorithms**: `longstaff_schwartz`, `price_estimator`, and parallelized versions.
-- **Visualization**: Plotting functions for paths, Monte Carlo convergence, loss curves, and continuation values.
-
-## How to Use
-1. **Install requirements** (see below).
-2. **Run the notebook** or the Python script:
-   - For the notebook: Open `Neural Networks for Bermudan Option Pricing.ipynb` and run all cells.
-   - For the script: Run `python "Neural Networks for Bermudan Option Pricing.py"` (ensure you comment/uncomment main execution blocks as needed).
-3. **Configure parameters**: Set option type, dimensions, simulation count, etc., in the script or notebook cells.
-4. **View results**: Plots and printed outputs will show simulation diagnostics, regression performance, and option price estimates.
-
 ## Requirements
 - Python 3.7+
 - numpy
@@ -133,22 +106,7 @@ Feedforward neural networks (FFNN) are used as flexible regressors for the conti
 - tqdm_joblib
 - joblib
 
-Install with:
-```bash
-pip install numpy pandas matplotlib networkx scipy tensorflow scikit-learn tqdm tqdm_joblib joblib
-```
-
-## Results & Visualization
-- **Simulated Asset Paths**: 1D, 2D, and 3D plots of simulated Black-Scholes trajectories.
-- **Statistical Verification**: Plots comparing empirical and theoretical means/variances.
-- **Option Pricing**: Tables and plots of estimated prices for various Bermudan options (put, basket, max call, etc.).
-- **Regression Diagnostics**: Loss curves and continuation value plots for neural network and polynomial regressions.
-
 ## References
 - B. Lapeyre & J. Lelong (2021), "Neural network regression for Bermudan option pricing"
 - Longstaff, F. A., & Schwartz, E. S. (2001). Valuing American options by simulation: a simple least-squares approach. The Review of Financial Studies, 14(1), 113-147.
 - Black, F., & Scholes, M. (1973). The pricing of options and corporate liabilities. Journal of Political Economy, 81(3), 637-654.
-
----
-
-**This README was auto-generated based on the code and formulas in the project. For more details, see the code comments and docstrings.** 
